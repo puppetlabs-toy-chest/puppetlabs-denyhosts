@@ -3,7 +3,7 @@ class denyhosts (
   $allow      = [],
   $secure_log = $denyhosts::params::secure_log,
   $hosts_deny = '/etc/hosts.deny',
-  $purge_deny = undef,
+  $purge_deny = '',
   $purge_threshold = undef,
   $block_service = undef,
   $deny_threshold_invalid = undef,

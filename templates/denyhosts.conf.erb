@@ -20,7 +20,7 @@ SECURE_LOG = <%= secure_log %>
 HOSTS_DENY = <%= hosts_deny %>
 #######################################################################
 <% end -%>
-
+<% if @purge_deny -%>
 ########################################################################
 #
 # PURGE_DENY: removed HOSTS_DENY entries that are older than this time
@@ -34,15 +34,9 @@ HOSTS_DENY = <%= hosts_deny %>
 #            'w' = weeks
 #            'y' = years
 #
-# never purge:
-PURGE_DENY = 
-#
-# purge entries older than 1 week
-#PURGE_DENY = 1w
-#
-# purge entries older than 5 days
-#PURGE_DENY = 5d
+PURGE_DENY = <%= purge_deny %>
 #######################################################################
+<% end -%>
 
 #######################################################################
 #

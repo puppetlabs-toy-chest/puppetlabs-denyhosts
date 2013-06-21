@@ -26,6 +26,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/ADMIN_EMAIL\s=\sroot@localhost/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/auth.log/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/HOSTS_DENY\s=\s\/etc\/hosts.deny/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/PURGE_DENY\s=/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
             :enable    => 'true',
@@ -67,10 +68,12 @@ describe 'denyhosts', :type => :class do
     describe 'by default' do
       let :params do
         {
-            :adminemail => ''
+            :adminemail => '',
+            :purge_deny => '1w'
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/PURGE_DENY\s=\s1w/) }
       it { should contain_file('/etc/hosts.allow')}
     end
 
