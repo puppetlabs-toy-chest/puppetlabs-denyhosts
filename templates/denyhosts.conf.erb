@@ -48,7 +48,7 @@ PURGE_DENY = <%= purge_deny %>
 PURGE_THRESHOLD = <%= purge_threshold %>
 #######################################################################
 <% end -%>
-
+<% if @block_service -%>
 #######################################################################
 #
 # BLOCK_SERVICE: the service name that should be blocked in HOSTS_DENY
@@ -57,17 +57,9 @@ PURGE_THRESHOLD = <%= purge_threshold %>
 #
 # eg.   sshd: 127.0.0.1  # will block sshd logins from 127.0.0.1
 #
-# To block all services for the offending host:
-#BLOCK_SERVICE = ALL
-# To block only sshd:
-BLOCK_SERVICE  = sshd
-# To only record the offending host and nothing else (if using
-# an auxilary file to list the hosts).  Refer to: 
-# http://denyhosts.sourceforge.net/faq.html#aux
-#BLOCK_SERVICE =    
-#
+BLOCK_SERVICE = <%= block_service %>
 #######################################################################
-
+<% end -%>
 
 #######################################################################
 #

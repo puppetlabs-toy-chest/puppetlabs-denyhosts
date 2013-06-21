@@ -5,7 +5,7 @@ class denyhosts (
   $hosts_deny = '/etc/hosts.deny',
   $purge_deny = '',
   $purge_threshold = undef,
-  $block_service = undef,
+  $block_service = 'sshd',
   $deny_threshold_invalid = undef,
   $deny_threshold_valid = undef,
   $deny_threshold_root = undef,
