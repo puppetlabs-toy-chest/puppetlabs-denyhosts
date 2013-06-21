@@ -1,7 +1,9 @@
 class denyhosts (
   $adminemail = "root@localhost",
-  $allow      = ''
+  $allow      = []
   ) {
+
+  validate_array($allow)
 
   package { "denyhosts": ensure => installed; }
 
@@ -24,7 +26,7 @@ class denyhosts (
 
   file {
     "/etc/hosts.allow":
-      content => inline_template('<%= [ allow.to_a.join("\n") , "\n" ].join %>'),
+      content => template("denyhosts/hosts.allow.erb"),
       owner   => root,
       group   => root,
       mode    => 644,
