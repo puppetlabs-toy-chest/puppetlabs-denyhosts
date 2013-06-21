@@ -65,16 +65,28 @@ describe 'denyhosts', :type => :class do
       }
     end
 
+
     describe 'by default' do
       let :params do
         {
+            :adminemail => ''
+        }
+      end
+      it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
+      it { should contain_file('/etc/hosts.allow')}
+    end
+
+    describe 'with each option defined' do
+      let :params do
+        {
             :adminemail => '',
-            :purge_deny => '1w'
+            :purge_deny => '1w',
+            :purge_threshold => '0',
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/PURGE_DENY\s=\s1w/) }
-      it { should contain_file('/etc/hosts.allow')}
+      it { should contain_file('/etc/denyhosts.conf').with_content(/PURGE_THRESHOLD\s=\s0/) }
     end
 
   end

@@ -37,7 +37,7 @@ HOSTS_DENY = <%= hosts_deny %>
 PURGE_DENY = <%= purge_deny %>
 #######################################################################
 <% end -%>
-
+<% if @purge_threshold -%>
 #######################################################################
 #
 # PURGE_THRESHOLD: defines the maximum times a host will be purged.  
@@ -45,13 +45,9 @@ PURGE_DENY = <%= purge_deny %>
 # Setting this parameter to 0 (the default) disables this feature.
 #
 # default: a denied host can be purged/re-added indefinitely
-#PURGE_THRESHOLD = 0
-#
-# a denied host will be purged at most 2 times. 
-#PURGE_THRESHOLD = 2 
-#
+PURGE_THRESHOLD = <%= purge_threshold %>
 #######################################################################
-
+<% end -%>
 
 #######################################################################
 #
