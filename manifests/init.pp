@@ -6,7 +6,7 @@ class denyhosts (
   $purge_deny = '',
   $purge_threshold = undef,
   $block_service = 'sshd',
-  $deny_threshold_invalid = undef,
+  $deny_threshold_invalid = '5',
   $deny_threshold_valid = undef,
   $deny_threshold_root = undef,
   $deny_threshold_restricted = undef,

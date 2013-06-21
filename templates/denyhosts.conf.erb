@@ -60,16 +60,16 @@ PURGE_THRESHOLD = <%= purge_threshold %>
 BLOCK_SERVICE = <%= block_service %>
 #######################################################################
 <% end -%>
-
+<% if @deny_threshold_invalid -%>
 #######################################################################
 #
 # DENY_THRESHOLD_INVALID: block each host after the number of failed login 
 # attempts has exceeded this value.  This value applies to invalid
 # user login attempts (eg. non-existent user accounts)
 #
-DENY_THRESHOLD_INVALID = 5
-#
+DENY_THRESHOLD_INVALID = <%= deny_threshold_invalid %>
 #######################################################################
+<% end -%>
 
 #######################################################################
 #
