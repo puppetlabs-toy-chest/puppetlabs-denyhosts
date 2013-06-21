@@ -53,4 +53,24 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/hosts.allow').with_content(/host3\n/) }
     end
   end
+
+  describe 'when deploying on CentOS' do
+    let :facts do
+      {
+          :osfamily        => 'RedHat',
+          :operatingsystem => 'CentOS',
+      }
+    end
+
+    describe 'by default' do
+      let :params do
+        {
+            :adminemail => ''
+        }
+      end
+      it { should contain_file('/etc/denyhosts.conf')}
+      it { should contain_file('/etc/hosts.allow')}
+    end
+
+  end
 end
