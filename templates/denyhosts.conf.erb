@@ -1,5 +1,6 @@
        ############ THESE SETTINGS ARE REQUIRED ############
 
+<% if @secure_log -%>
 ########################################################################
 #
 # SECURE_LOG: the log file that contains sshd logging info
@@ -8,25 +9,9 @@
 # The file to process can be overridden with the --file command line
 # argument
 #
-# Redhat or Fedora Core:
-#SECURE_LOG = /var/log/secure
-#
-# Mandrake, FreeBSD or OpenBSD: 
-#SECURE_LOG = /var/log/auth.log
-#
-# SuSE:
-#SECURE_LOG = /var/log/messages
-#
-# Mac OS X (v10.4 or greater - 
-#   also refer to:   http://www.denyhosts.net/faq.html#macos
-#SECURE_LOG = /private/var/log/asl.log
-#
-# Mac OS X (v10.3 or earlier):
-#SECURE_LOG=/private/var/log/system.log
-#
-# Debian:
-SECURE_LOG = /var/log/auth.log
+SECURE_LOG = <%= secure_log %>
 ########################################################################
+<% end -%>
 
 ########################################################################
 #

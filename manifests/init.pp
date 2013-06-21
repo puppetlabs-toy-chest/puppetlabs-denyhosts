@@ -2,9 +2,7 @@ class denyhosts (
   $adminemail = "root@localhost",
   $allow      = [],
   $secure_log = $denyhosts::params::secure_log
-  ) {
-
-  include denyhosts::params
+  ) inherits denyhosts::params {
 
   validate_array($allow)
 
