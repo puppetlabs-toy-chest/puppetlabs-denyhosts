@@ -12,21 +12,14 @@
 SECURE_LOG = <%= secure_log %>
 ########################################################################
 <% end -%>
-
+<% if @hosts_deny -%>
 ########################################################################
 #
 # HOSTS_DENY: the file which contains restricted host access information
 #
-# Most operating systems:
-HOSTS_DENY = /etc/hosts.deny
-#
-# Some BSD (FreeBSD) Unixes:
-#HOSTS_DENY = /etc/hosts.allow
-#
-# Another possibility (also see the next option):
-#HOSTS_DENY = /etc/hosts.evil
+HOSTS_DENY = <%= hosts_deny %>
 #######################################################################
-
+<% end -%>
 
 ########################################################################
 #
