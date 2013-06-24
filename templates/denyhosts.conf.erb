@@ -172,7 +172,7 @@ LOCK_FILE = <%= lock_file %>
 ADMIN_EMAIL = <%= adminemail %>
 #######################################################################
 <% end -%>
-
+<% if @smtp_host and @smtp_port -%>
 #######################################################################
 #
 # SMTP_HOST and SMTP_PORT: if DenyHosts is configured to email 
@@ -180,10 +180,11 @@ ADMIN_EMAIL = <%= adminemail %>
 # email server address (SMTP_HOST) and the server port (SMTP_PORT)
 # 
 #
-SMTP_HOST = localhost
-SMTP_PORT = 25
+SMTP_HOST = <%= smtp_host %>
+SMTP_PORT = <%= smtp_port %>
 #
 #######################################################################
+<% end -%>
 
 #######################################################################
 # 
