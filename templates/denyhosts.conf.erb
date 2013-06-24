@@ -185,16 +185,17 @@ SMTP_PORT = <%= smtp_port %>
 #
 #######################################################################
 <% end -%>
-
+<% if @smtp_username and @smtp_password -%>
 #######################################################################
 # 
 # SMTP_USERNAME and SMTP_PASSWORD: set these parameters if your 
 # smtp email server requires authentication
 #
-#SMTP_USERNAME=foo
-#SMTP_PASSWORD=bar
+SMTP_USERNAME = <%= smtp_username %>
+SMTP_PASSWORD = <%= smtp_password %>
 #
 ######################################################################
+<% end -%>
 
 #######################################################################
 #
