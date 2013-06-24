@@ -101,7 +101,7 @@ DENY_THRESHOLD_ROOT = <%= deny_threshold_root %>
 DENY_THRESHOLD_RESTRICTED = <%= deny_threshold_restricted %>
 #######################################################################
 <% end -%>
-
+<% if @work_dir -%>
 #######################################################################
 #
 # WORK_DIR: the path that DenyHosts will use for writing data to
@@ -110,9 +110,9 @@ DENY_THRESHOLD_RESTRICTED = <%= deny_threshold_restricted %>
 # Note: it is recommended that you use an absolute pathname
 # for this value (eg. /home/foo/denyhosts/data)
 #
-WORK_DIR = /var/lib/denyhosts
-#
+WORK_DIR = <%= work_dir %>
 #######################################################################
+<% end -%>
 
 #######################################################################
 #

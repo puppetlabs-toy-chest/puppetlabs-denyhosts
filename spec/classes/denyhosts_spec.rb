@@ -32,6 +32,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/DENY_THRESHOLD_VALID\s=\s10/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/DENY_THRESHOLD_ROOT\s=\s1/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/DENY_THRESHOLD_RESTRICTED\s=\s1/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/WORK_DIR\s=\s\/var\/lib\/denyhosts/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
             :enable    => 'true',
@@ -92,6 +93,7 @@ describe 'denyhosts', :type => :class do
             :deny_threshold_valid => '15',
             :deny_threshold_root => '2',
             :deny_threshold_restricted => '2',
+            :work_dir => '/opt/denyhosts/var',
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
@@ -102,6 +104,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/DENY_THRESHOLD_VALID\s=\s15/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/DENY_THRESHOLD_ROOT\s=\s2/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/DENY_THRESHOLD_RESTRICTED\s=\s2/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/WORK_DIR\s=\s\/opt\/denyhosts\/var/) }
     end
 
   end
