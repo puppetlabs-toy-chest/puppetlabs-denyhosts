@@ -9,7 +9,7 @@ class denyhosts (
   $deny_threshold_invalid = '5',
   $deny_threshold_valid = '10',
   $deny_threshold_root = '1',
-  $deny_threshold_restricted = undef,
+  $deny_threshold_restricted = '1',
   $work_dir = undef,
   $suspicious_login_report_allowed_hosts = undef,
   $hostname_lookup = undef,

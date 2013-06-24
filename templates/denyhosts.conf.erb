@@ -91,17 +91,16 @@ DENY_THRESHOLD_VALID = <%= deny_threshold_valid %>
 DENY_THRESHOLD_ROOT = <%= deny_threshold_root %>
 #######################################################################
 <% end -%>
-
+<% if @deny_threshold_restricted -%>
 #######################################################################
 #
 # DENY_THRESHOLD_RESTRICTED: block each host after the number of failed 
 # login attempts has exceeded this value.  This value applies to 
 # usernames that appear in the WORK_DIR/restricted-usernames file only.
 #
-DENY_THRESHOLD_RESTRICTED = 1
-#
+DENY_THRESHOLD_RESTRICTED = <%= deny_threshold_restricted %>
 #######################################################################
-
+<% end -%>
 
 #######################################################################
 #
