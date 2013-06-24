@@ -229,7 +229,7 @@ SMTP_DATE_FORMAT = <%= smtp_date_format %>
 #
 ######################################################################
 <% end -%>
-
+<% if @syslog_report -%>
 ######################################################################
 #
 # SYSLOG_REPORT
@@ -239,11 +239,10 @@ SMTP_DATE_FORMAT = <%= smtp_date_format %>
 # will be sent to syslog (syslog must be present on your system).
 # The default is: NO
 #
-#SYSLOG_REPORT=NO
-#
-#SYSLOG_REPORT=YES
+SYSLOG_REPORT = <%= syslog_report %>
 #
 ######################################################################
+<% end -%>
 
 ######################################################################
 #

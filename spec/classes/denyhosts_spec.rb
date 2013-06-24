@@ -44,6 +44,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_FROM\s=\sDenyHosts\s<nobody@localhost\.localdomain>/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_SUBJECT\s=\sDenyHosts\sReport/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^SMTP_DATE_FORMAT/) }
+      it { should_not contain_file('/etc/denyhosts.conf').with_content(/^SYSLOG_REPORT/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
             :enable    => 'true',
@@ -116,6 +117,7 @@ describe 'denyhosts', :type => :class do
             :smtp_from => false,
             :smtp_subject => 'IMPORTANT - Deny Host Report',
             :smtp_date_format => '%A, %d %B %Y %H:%M:%S %z',
+            :syslog_report => 'YES',
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
@@ -137,6 +139,7 @@ describe 'denyhosts', :type => :class do
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/SMTP_FROM/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_SUBJECT\s=\sIMPORTANT\s-\sDeny\sHost\sReport/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_DATE_FORMAT\s=\s%A,\s%d\s%B\s%Y\s%H:%M:%S\s%z/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/SYSLOG_REPORT\s=\sYES/) }
     end
 
   end
