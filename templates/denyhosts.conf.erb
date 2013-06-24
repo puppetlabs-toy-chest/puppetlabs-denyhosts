@@ -81,16 +81,16 @@ DENY_THRESHOLD_INVALID = <%= deny_threshold_invalid %>
 DENY_THRESHOLD_VALID = <%= deny_threshold_valid %>
 #######################################################################
 <% end -%>
+<% if @deny_threshold_root -%>
 #######################################################################
 #
 # DENY_THRESHOLD_ROOT: block each host after the number of failed 
 # login attempts has exceeded this value.  This value applies to 
 # "root" user login attempts only.
 #
-DENY_THRESHOLD_ROOT = 1
-#
+DENY_THRESHOLD_ROOT = <%= deny_threshold_root %>
 #######################################################################
-
+<% end -%>
 
 #######################################################################
 #

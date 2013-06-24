@@ -8,7 +8,7 @@ class denyhosts (
   $block_service = 'sshd',
   $deny_threshold_invalid = '5',
   $deny_threshold_valid = '10',
-  $deny_threshold_root = undef,
+  $deny_threshold_root = '1',
   $deny_threshold_restricted = undef,
   $work_dir = undef,
   $suspicious_login_report_allowed_hosts = undef,
