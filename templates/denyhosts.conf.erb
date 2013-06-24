@@ -258,7 +258,7 @@ ALLOWED_HOSTS_HOSTNAME_LOOKUP = <%= allowed_hosts_hostname_lookup %>
 #
 ######################################################################
 <% end -%>
-
+<% if @age_reset_valid -%>
 ###################################################################### 
 # 
 # AGE_RESET_VALID: Specifies the period of time between failed login
@@ -272,9 +272,10 @@ ALLOWED_HOSTS_HOSTNAME_LOOKUP = <%= allowed_hosts_hostname_lookup %>
 # for details on specifying this value or for complete details 
 # refer to:  http://denyhosts.sourceforge.net/faq.html#timespec
 #
-AGE_RESET_VALID=5d
+AGE_RESET_VALID = <%= age_reset_valid %>
 #
 ######################################################################
+<% end -%>
 
 ###################################################################### 
 # 

@@ -23,7 +23,7 @@ class denyhosts (
   $smtp_date_format = undef,
   $syslog_report = undef,
   $allowed_hosts_hostname_lookup = undef,
-  $age_reset_valid = undef,
+  $age_reset_valid = '5d',
   $age_reset_root = undef,
   $age_reset_restricted = undef,
   $age_reset_invalid = undef,
