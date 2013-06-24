@@ -70,7 +70,7 @@ BLOCK_SERVICE = <%= block_service %>
 DENY_THRESHOLD_INVALID = <%= deny_threshold_invalid %>
 #######################################################################
 <% end -%>
-
+<% if @deny_threshold_valid -%>
 #######################################################################
 #
 # DENY_THRESHOLD_VALID: block each host after the number of failed 
@@ -78,10 +78,9 @@ DENY_THRESHOLD_INVALID = <%= deny_threshold_invalid %>
 # user login attempts (eg. user accounts that exist in /etc/passwd) except
 # for the "root" user
 #
-DENY_THRESHOLD_VALID = 10
-#
+DENY_THRESHOLD_VALID = <%= deny_threshold_valid %>
 #######################################################################
-
+<% end -%>
 #######################################################################
 #
 # DENY_THRESHOLD_ROOT: block each host after the number of failed 
