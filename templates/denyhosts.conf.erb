@@ -158,7 +158,7 @@ LOCK_FILE = <%= lock_file %>
 
        ############ THESE SETTINGS ARE OPTIONAL ############
 
-
+<% if @adminemail -%>
 #######################################################################
 #
 # ADMIN_EMAIL: if you would like to receive emails regarding newly
@@ -170,8 +170,8 @@ LOCK_FILE = <%= lock_file %>
 # ADMIN_EMAIL = foo@bar.com, bar@foo.com, etc@foobar.com
 #
 ADMIN_EMAIL = <%= adminemail %>
-#
 #######################################################################
+<% end -%>
 
 #######################################################################
 #
