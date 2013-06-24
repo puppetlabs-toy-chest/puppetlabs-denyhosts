@@ -206,15 +206,16 @@ SMTP_FROM = DenyHosts <nobody@<%= fqdn %>>
 #
 #######################################################################
 <% end -%>
-
+<% if @smtp_subject -%>
 #######################################################################
 #
 # SMTP_SUBJECT: you can specify the "Subject:" of messages sent
 # by DenyHosts when it reports thwarted abuse attempts
-SMTP_SUBJECT = DenyHosts Report
+SMTP_SUBJECT = <%= smtp_subject %>
 #
 ######################################################################
-
+<% end -%>
+<% if @smtp_date_format -%>
 ######################################################################
 #
 # SMTP_DATE_FORMAT: specifies the format used for the "Date:" header
@@ -224,9 +225,10 @@ SMTP_SUBJECT = DenyHosts Report
 #
 # the default:
 #
-#SMTP_DATE_FORMAT = %a, %d %b %Y %H:%M:%S %z
+SMTP_DATE_FORMAT = <%= smtp_date_format %>
 #
 ######################################################################
+<% end -%>
 
 ######################################################################
 #
