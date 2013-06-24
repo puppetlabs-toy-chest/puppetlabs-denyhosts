@@ -127,7 +127,7 @@ WORK_DIR = <%= work_dir %>
 SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS = <%= suspicious_login_report_allowed_hosts %>
 ######################################################################
 <% end -%>
-
+<% if @hostname_lookup -%>
 ######################################################################
 #
 # HOSTNAME_LOOKUP
@@ -137,10 +137,10 @@ SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS = <%= suspicious_login_report_allowed_host
 # the corresponding hostname will be looked up and reported as well
 # (if available).
 #
-HOSTNAME_LOOKUP=YES
+HOSTNAME_LOOKUP = <%= hostname_lookup %>
 #
 ######################################################################
-
+<% end -%>
 
 ######################################################################
 #

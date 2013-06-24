@@ -34,6 +34,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/DENY_THRESHOLD_RESTRICTED\s=\s1/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/WORK_DIR\s=\s\/var\/lib\/denyhosts/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS\s=\sYES/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/HOSTNAME_LOOKUP\s=\sYES/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
             :enable    => 'true',
@@ -96,6 +97,7 @@ describe 'denyhosts', :type => :class do
             :deny_threshold_restricted => '2',
             :work_dir => '/opt/denyhosts/var',
             :suspicious_login_report_allowed_hosts => 'NO',
+            :hostname_lookup => 'NO'
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
@@ -108,6 +110,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/DENY_THRESHOLD_RESTRICTED\s=\s2/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/WORK_DIR\s=\s\/opt\/denyhosts\/var/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS\s=\sNO/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/HOSTNAME_LOOKUP\s=\sNO/) }
     end
 
   end
