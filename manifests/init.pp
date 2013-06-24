@@ -13,7 +13,7 @@ class denyhosts (
   $work_dir = '/var/lib/denyhosts',
   $suspicious_login_report_allowed_hosts = 'YES',
   $hostname_lookup = 'YES',
-  $lock_file = undef,
+  $lock_file = $denyhosts::params::lock_file,
   $smtp_host = undef,
   $smtp_port = undef,
   $smtp_username = undef,

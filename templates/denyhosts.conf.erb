@@ -141,7 +141,7 @@ HOSTNAME_LOOKUP = <%= hostname_lookup %>
 #
 ######################################################################
 <% end -%>
-
+<% if @lock_file -%>
 ######################################################################
 #
 # LOCK_FILE
@@ -152,17 +152,9 @@ HOSTNAME_LOOKUP = <%= hostname_lookup %>
 # and deleted upon exit.  This ensures that only one instance is
 # running at a time.
 #
-# Redhat/Fedora:
-#LOCK_FILE = /var/lock/subsys/denyhosts
-#
-# Debian
-LOCK_FILE = /var/run/denyhosts.pid
-#
-# Misc
-#LOCK_FILE = /tmp/denyhosts.lock
-#
+LOCK_FILE = <%= lock_file %>
 ######################################################################
-
+<% end -%>
 
        ############ THESE SETTINGS ARE OPTIONAL ############
 
