@@ -8,6 +8,7 @@ describe 'denyhosts', :type => :class do
           :osfamily        => 'Debian',
           :operatingsystem => 'Debian',
           :lsbdistcodename => 'sid',
+          :fqdn            => 'localhost.localdomain'
       }
     end
 
@@ -24,8 +25,8 @@ describe 'denyhosts', :type => :class do
            })
       }
       it { should contain_file('/etc/denyhosts.conf').with_content(/ADMIN_EMAIL\s=\sroot@localhost/) }
-      it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/auth.log/) }
-      it { should contain_file('/etc/denyhosts.conf').with_content(/HOSTS_DENY\s=\s\/etc\/hosts.deny/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/auth\.log/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/HOSTS_DENY\s=\s\/etc\/hosts\.deny/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/PURGE_DENY\s=/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/BLOCK_SERVICE\s=\ssshd/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/DENY_THRESHOLD_INVALID\s=\s5/) }
@@ -35,11 +36,12 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/WORK_DIR\s=\s\/var\/lib\/denyhosts/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS\s=\sYES/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/HOSTNAME_LOOKUP\s=\sYES/) }
-      it { should contain_file('/etc/denyhosts.conf').with_content(/LOCK_FILE\s=\s\/var\/run\/denyhosts.pid/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/LOCK_FILE\s=\s\/var\/run\/denyhosts\.pid/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_HOST\s=\slocalhost/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_PORT\s=\s25/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^SMTP_USERNAME/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^SMTP_PASSWORD/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_FROM\s=\sDenyHosts\s<nobody@localhost\.localdomain>/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
             :enable    => 'true',
@@ -122,8 +124,8 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/WORK_DIR\s=\s\/opt\/denyhosts\/var/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS\s=\sNO/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/HOSTNAME_LOOKUP\s=\sNO/) }
-      it { should contain_file('/etc/denyhosts.conf').with_content(/LOCK_FILE\s=\s\/tmp\/denyhosts.lock/) }
-      it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_HOST\s=\ssecuremailhost.localdomain/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/LOCK_FILE\s=\s\/tmp\/denyhosts\.lock/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_HOST\s=\ssecuremailhost\.localdomain/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_PORT\s=\s465/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_USERNAME\s=\sfoo/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_PASSWORD\s=\sbar/) }
