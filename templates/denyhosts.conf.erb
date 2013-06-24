@@ -243,7 +243,7 @@ SYSLOG_REPORT = <%= syslog_report %>
 #
 ######################################################################
 <% end -%>
-
+<% if @allowed_hosts_hostname_lookup -%>
 ######################################################################
 #
 # ALLOWED_HOSTS_HOSTNAME_LOOKUP
@@ -254,9 +254,10 @@ SYSLOG_REPORT = <%= syslog_report %>
 # and sshd sometimes log hostnames in addition to ip addresses
 # then you may wish to specify this option.
 # 
-#ALLOWED_HOSTS_HOSTNAME_LOOKUP=NO
+ALLOWED_HOSTS_HOSTNAME_LOOKUP = <%= allowed_hosts_hostname_lookup %>
 #
 ######################################################################
+<% end -%>
 
 ###################################################################### 
 # 
