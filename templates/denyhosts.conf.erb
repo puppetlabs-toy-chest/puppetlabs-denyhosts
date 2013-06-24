@@ -113,7 +113,7 @@ DENY_THRESHOLD_RESTRICTED = <%= deny_threshold_restricted %>
 WORK_DIR = <%= work_dir %>
 #######################################################################
 <% end -%>
-
+<% if @suspicious_login_report_allowed_hosts -%>
 #######################################################################
 #
 # SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS
@@ -124,8 +124,9 @@ WORK_DIR = <%= work_dir %>
 # from allowed-hosts will not be reported.  All suspicious logins from 
 # ip addresses that are not in allowed-hosts will always be reported.
 #
-SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS=YES
+SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS = <%= suspicious_login_report_allowed_hosts %>
 ######################################################################
+<% end -%>
 
 ######################################################################
 #

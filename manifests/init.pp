@@ -11,7 +11,7 @@ class denyhosts (
   $deny_threshold_root = '1',
   $deny_threshold_restricted = '1',
   $work_dir = '/var/lib/denyhosts',
-  $suspicious_login_report_allowed_hosts = undef,
+  $suspicious_login_report_allowed_hosts = 'YES',
   $hostname_lookup = undef,
   $lock_file = undef,
   $smtp_host = undef,
