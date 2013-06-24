@@ -111,6 +111,7 @@ describe 'denyhosts', :type => :class do
             :smtp_port => '465',
             :smtp_username => 'foo',
             :smtp_password => 'bar',
+            :smtp_from => false,
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
@@ -129,6 +130,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_PORT\s=\s465/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_USERNAME\s=\sfoo/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SMTP_PASSWORD\s=\sbar/) }
+      it { should_not contain_file('/etc/denyhosts.conf').with_content(/SMTP_FROM/) }
     end
 
   end

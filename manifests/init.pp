@@ -18,7 +18,7 @@ class denyhosts (
   $smtp_port = '25',
   $smtp_username = undef,
   $smtp_password = undef,
-  $smtp_from = undef,
+  $smtp_from = true,
   $smtp_subject = undef,
   $smtp_date_format = undef,
   $syslog_report = undef,
