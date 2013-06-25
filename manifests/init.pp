@@ -4,17 +4,6 @@
 #
 # Parameters:
 #
-#  [*distribution*]
-#    The java distribution to install. Can be one of "jdk" or "jre".
-#
-#  [*version*]
-#    The version of java to install. By default, this module simply ensures
-#    that java is present, and does not require a specific version.
-#
-#  [*package*]
-#    The name of the java package. This is configurable in case a non-standard
-#    java package is desired.
-#
 # Actions:
 #
 # Requires:
