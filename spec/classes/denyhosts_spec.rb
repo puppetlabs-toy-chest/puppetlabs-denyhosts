@@ -55,6 +55,7 @@ describe 'denyhosts', :type => :class do
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^PLUGIN_PURGE/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^USERDEF_FAILED_ENTRY_REGEX/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/DAEMON_LOG\s=\s\/var\/log\/denyhosts/) }
+      it { should_not contain_file('/etc/denyhosts.conf').with_content(/^DAEMON_LOG_TIME_FORMAT/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
             :enable    => 'true',
@@ -138,6 +139,7 @@ describe 'denyhosts', :type => :class do
             :plugin_purge => '/usr/bin/true',
             :userdef_failed_entry_regex => 'break in attempt from (?P.*)',
             :daemon_log => '/var/log/denyhosts.log',
+            :daemon_log_time_format => '%b %d %H:%M:%S',
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
@@ -170,6 +172,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/PLUGIN_PURGE\s=\s\/usr\/bin\/true/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/USERDEF_FAILED_ENTRY_REGEX\s=\sbreak\sin\sattempt\sfrom\s\(\?P\.\*\)/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/DAEMON_LOG\s=\s\/var\/log\/denyhosts.log/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/DAEMON_LOG_TIME_FORMAT\s=\s%b\s%d\s%H:%M:%S/) }
     end
 
   end

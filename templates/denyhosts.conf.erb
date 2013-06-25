@@ -408,7 +408,7 @@ DAEMON_LOG = <%= daemon_log %>
 #
 ######################################################################
 <% end -%>
-
+<% if @daemon_log_time_format -%>
 #######################################################################
 # 
 # DAEMON_LOG_TIME_FORMAT: when DenyHosts is run in daemon mode 
@@ -418,13 +418,10 @@ DAEMON_LOG = <%= daemon_log %>
 #
 # for possible values for this parameter refer to: man strftime
 #
-# Jan 1 13:05:59   
-#DAEMON_LOG_TIME_FORMAT = %b %d %H:%M:%S
-#
-# Jan 1 01:05:59 
-#DAEMON_LOG_TIME_FORMAT = %b %d %I:%M:%S
+DAEMON_LOG_TIME_FORMAT = <%= daemon_log_time_format %>
 #
 ###################################################################### 
+<% end -%>
 
 #######################################################################
 # 
