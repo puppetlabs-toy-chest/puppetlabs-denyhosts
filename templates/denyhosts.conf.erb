@@ -338,7 +338,7 @@ AGE_RESET_INVALID = <%= age_reset_invalid %>
 #
 ######################################################################
 <% end -%>
-
+<% if @reset_on_success -%>
 ######################################################################
 #
 # RESET_ON_SUCCESS: If this parameter is set to "yes" then the
@@ -347,10 +347,10 @@ AGE_RESET_INVALID = <%= age_reset_invalid %>
 #
 # The default is RESET_ON_SUCCESS = no
 #
-#RESET_ON_SUCCESS = yes
+RESET_ON_SUCCESS = <%= reset_on_success %>
 #
 #####################################################################
-
+<% end -%>
 
 ######################################################################
 #
