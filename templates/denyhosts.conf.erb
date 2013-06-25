@@ -456,17 +456,17 @@ DAEMON_SLEEP = <%= daemon_sleep %>
 #
 #######################################################################
 <% end -%>
-
+<% if @daemon_purge -%>
 #######################################################################
 #
 # DAEMON_PURGE: How often should DenyHosts, when run in daemon mode,
 # run the purge mechanism to expire old entries in HOSTS_DENY
 # This has no effect if PURGE_DENY is blank.
 #
-DAEMON_PURGE = 1h
+DAEMON_PURGE = <%= daemon_purge %>
 #
 #######################################################################
-
+<% end -%>
 
    #########   THESE SETTINGS ARE SPECIFIC TO     ##########
    #########       DAEMON SYNCHRONIZATION         ##########
