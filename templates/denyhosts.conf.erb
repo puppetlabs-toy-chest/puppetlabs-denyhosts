@@ -536,7 +536,7 @@ SYNC_DOWNLOAD = <%= sync_download %>
 #
 #######################################################################
 <% end -%>
-
+<% if @sync_download_threshold -%>
 #######################################################################
 #
 # SYNC_DOWNLOAD_THRESHOLD: If SYNC_DOWNLOAD is enabled this parameter
@@ -546,14 +546,13 @@ SYNC_DOWNLOAD = <%= sync_download %>
 # 
 # See also SYNC_DOWNLOAD_RESILIENCY
 #
-#SYNC_DOWNLOAD_THRESHOLD = 10
+# The default is SYNC_DOWNLOAD_THRESHOLD = 3
 #
-# The default is SYNC_DOWNLOAD_THRESHOLD = 3 
-#
-#SYNC_DOWNLOAD_THRESHOLD = 3
+SYNC_DOWNLOAD_THRESHOLD = <%= sync_download_threshold %>
 #
 #######################################################################
-
+<% end -%>
+<% if @sync_download_resiliency -%>
 #######################################################################
 #
 # SYNC_DOWNLOAD_RESILIENCY:  If SYNC_DOWNLOAD is enabled then the
@@ -576,11 +575,8 @@ SYNC_DOWNLOAD = <%= sync_download %>
 #
 # The default is SYNC_DOWNLOAD_RESILIENCY = 5h (5 hours)
 #
-# Only obtain hackers that have been at it for 2 days or more:
-#SYNC_DOWNLOAD_RESILIENCY = 2d
-#
-# Only obtain hackers that have been at it for 5 hours or more:
-#SYNC_DOWNLOAD_RESILIENCY = 5h
+SYNC_DOWNLOAD_RESILIENCY = <%= sync_download_resiliency %>
 #
 #######################################################################
+<% end -%>
 

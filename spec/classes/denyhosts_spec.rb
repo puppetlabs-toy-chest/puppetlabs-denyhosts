@@ -63,6 +63,8 @@ describe 'denyhosts', :type => :class do
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^SYNC_INTERVAL/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_UPLOAD\s=\sno/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^SYNC_DOWNLOAD/) }
+      it { should_not contain_file('/etc/denyhosts.conf').with_content(/^SYNC_DOWNLOAD_THRESHOLD/) }
+      it { should_not contain_file('/etc/denyhosts.conf').with_content(/^SYNC_DOWNLOAD_RESILIENCY/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
             :enable    => 'true',
@@ -154,6 +156,8 @@ describe 'denyhosts', :type => :class do
             :sync_interval => '2h',
             :sync_upload => 'yes',
             :sync_download => 'no',
+            :sync_download_threshold => '10',
+            :sync_download_resiliency => '2d'
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
@@ -194,6 +198,8 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_INTERVAL\s=\s2h/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_UPLOAD\s=\syes/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_DOWNLOAD\s=\sno/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_DOWNLOAD_THRESHOLD\s=\s10/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_DOWNLOAD_RESILIENCY\s=\s2d/) }
     end
 
   end
