@@ -51,6 +51,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/AGE_RESET_RESTRICTED\s=\s25d/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/AGE_RESET_INVALID\s=\s10d/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^RESET_ON_SUCCESS/) }
+      it { should_not contain_file('/etc/denyhosts.conf').with_content(/^PLUGIN_DENY/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^PLUGIN_PURGE/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
