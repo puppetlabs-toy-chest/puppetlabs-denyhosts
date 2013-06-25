@@ -26,7 +26,7 @@ class denyhosts (
   $age_reset_valid = '5d',
   $age_reset_root = '25d',
   $age_reset_restricted = '25d',
-  $age_reset_invalid = undef,
+  $age_reset_invalid = '10d',
   $reset_on_success = undef,
   $plugin_deny = undef,
   $plugin_purge = undef,

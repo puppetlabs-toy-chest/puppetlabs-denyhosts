@@ -321,7 +321,7 @@ AGE_RESET_RESTRICTED = <%= age_reset_restricted %>
 #
 ######################################################################
 <% end -%>
-
+<% if @age_reset_invalid -%>
 ###################################################################### 
 # 
 # AGE_RESET_INVALID: Specifies the period of time between failed login
@@ -334,10 +334,10 @@ AGE_RESET_RESTRICTED = <%= age_reset_restricted %>
 # for details on specifying this value or for complete details 
 # refer to:  http://denyhosts.sourceforge.net/faq.html#timespec
 #
-AGE_RESET_INVALID = 10d
+AGE_RESET_INVALID = <%= age_reset_invalid %>
 #
 ######################################################################
-
+<% end -%>
 
 ######################################################################
 #
