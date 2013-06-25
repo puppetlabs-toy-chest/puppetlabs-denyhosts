@@ -20,7 +20,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with({
             :owner   => 'root',
             :group   => 'root',
-            :mode    => '644',
+            :mode    => '0644',
             :notify  => 'Service[denyhosts]'
            })
       }
@@ -76,7 +76,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/hosts.allow').with({
             :owner   => 'root',
             :group   => 'root',
-            :mode    => '644'
+            :mode    => '0644'
            })
       }
     end

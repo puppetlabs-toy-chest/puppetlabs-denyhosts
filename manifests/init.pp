@@ -1,5 +1,33 @@
+# Class: denyhosts
+#
+# This module manages the Denyhosts package
+#
+# Parameters:
+#
+#  [*distribution*]
+#    The java distribution to install. Can be one of "jdk" or "jre".
+#
+#  [*version*]
+#    The version of java to install. By default, this module simply ensures
+#    that java is present, and does not require a specific version.
+#
+#  [*package*]
+#    The name of the java package. This is configurable in case a non-standard
+#    java package is desired.
+#
+# Actions:
+#
+# Requires:
+#
+# Sample Usage:
+#
+# class { 'denyhosts':
+#    adminemail => '',
+#    allow      => [ 'host1', 'host2', 'host3' ],
+#  }
+#
 class denyhosts (
-  $adminemail = "root@localhost",
+  $adminemail = 'root@localhost',
   $allow      = [],
   $secure_log = $denyhosts::params::secure_log,
   $hosts_deny = '/etc/hosts.deny',
@@ -46,31 +74,31 @@ class denyhosts (
 
   validate_array($allow)
 
-  package { "denyhosts": ensure => installed; }
+  package { 'denyhosts': ensure => installed; }
 
-  file { "/etc/denyhosts.conf":
+  file { '/etc/denyhosts.conf':
     owner   => root,
     group   => root,
-    mode    => 644,
-    content => template("denyhosts/denyhosts.conf.erb"),
-    notify  => Service["denyhosts"],
+    mode    => '0644',
+    content => template('denyhosts/denyhosts.conf.erb'),
+    notify  => Service['denyhosts'],
   }
 
   service {
-    "denyhosts":
+    'denyhosts':
       ensure    => running,
       enable    => true,
       hasstatus => false,
-      pattern   => "denyhosts",
-      require   => Package["denyhosts"],
+      pattern   => 'denyhosts',
+      require   => Package['denyhosts'],
   }
 
   file {
-    "/etc/hosts.allow":
-      content => template("denyhosts/hosts.allow.erb"),
+    '/etc/hosts.allow':
+      content => template('denyhosts/hosts.allow.erb'),
       owner   => root,
       group   => root,
-      mode    => 644,
+      mode    => '0644',
   }
 
 }
