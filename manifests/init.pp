@@ -31,7 +31,7 @@ class denyhosts (
   $plugin_deny = undef,
   $plugin_purge = undef,
   $userdef_failed_entry_regex = undef,
-  $daemon_log = undef,
+  $daemon_log = '/var/log/denyhosts',
   $daemon_log_time_format = undef,
   $daemon_log_message_format = undef,
   $daemon_sleep = undef,

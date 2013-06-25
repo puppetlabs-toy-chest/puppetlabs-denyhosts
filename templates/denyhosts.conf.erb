@@ -397,19 +397,17 @@ USERDEF_FAILED_ENTRY_REGEX = <%= userdef_failed_entry_regex %>
    ######### THESE SETTINGS ARE SPECIFIC TO DAEMON MODE  ##########
 
 
-
+<% if @daemon_log -%>
 #######################################################################
 #
 # DAEMON_LOG: when DenyHosts is run in daemon mode (--daemon flag)
 # this is the logfile that DenyHosts uses to report its status.
 # To disable logging, leave blank.  (default is: /var/log/denyhosts)
 #
-DAEMON_LOG = /var/log/denyhosts
-#
-# disable logging:
-#DAEMON_LOG = 
+DAEMON_LOG = <%= daemon_log %>
 #
 ######################################################################
+<% end -%>
 
 #######################################################################
 # 
