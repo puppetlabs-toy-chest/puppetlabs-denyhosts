@@ -422,7 +422,7 @@ DAEMON_LOG_TIME_FORMAT = <%= daemon_log_time_format %>
 #
 ###################################################################### 
 <% end -%>
-
+<% if @daemon_log_message_format -%>
 #######################################################################
 # 
 # DAEMON_LOG_MESSAGE_FORMAT: when DenyHosts is run in daemon mode 
@@ -438,12 +438,10 @@ DAEMON_LOG_TIME_FORMAT = <%= daemon_log_time_format %>
 # For details on the possible format types please refer to:
 # http://docs.python.org/lib/node357.html
 #
-# This is the default:
-#DAEMON_LOG_MESSAGE_FORMAT = %(asctime)s - %(name)-12s: %(levelname)-8s %(message)s
+DAEMON_LOG_MESSAGE_FORMAT = <%= daemon_log_message_format %>
 #
-#
-###################################################################### 
-
+######################################################################
+<% end -%>
  
 #######################################################################
 #
