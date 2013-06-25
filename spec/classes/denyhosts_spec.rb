@@ -53,6 +53,7 @@ describe 'denyhosts', :type => :class do
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^RESET_ON_SUCCESS/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^PLUGIN_DENY/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^PLUGIN_PURGE/) }
+      it { should_not contain_file('/etc/denyhosts.conf').with_content(/^USERDEF_FAILED_ENTRY_REGEX/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
             :enable    => 'true',
@@ -134,6 +135,7 @@ describe 'denyhosts', :type => :class do
             :reset_on_success => 'YES',
             :plugin_deny => '/usr/bin/true',
             :plugin_purge => '/usr/bin/true',
+            :userdef_failed_entry_regex => 'break in attempt from (?P.*)',
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
@@ -164,6 +166,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/RESET_ON_SUCCESS\s=\sYES/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/PLUGIN_DENY\s=\s\/usr\/bin\/true/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/PLUGIN_PURGE\s=\s\/usr\/bin\/true/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/USERDEF_FAILED_ENTRY_REGEX\s=\sbreak\sin\sattempt\sfrom\s\(\?P\.\*\)/) }
     end
 
   end

@@ -375,7 +375,7 @@ PLUGIN_PURGE = <%= plugin_purge %>
 #
 ######################################################################
 <% end -%>
-
+<% if @userdef_failed_entry_regex -%>
 ######################################################################
 #
 # USERDEF_FAILED_ENTRY_REGEX: if set, this value should contain
@@ -386,11 +386,11 @@ PLUGIN_PURGE = <%= plugin_purge %>
 # See this faq entry for more details:
 #    http://denyhosts.sf.net/faq.html#userdef_regex
 #
-#USERDEF_FAILED_ENTRY_REGEX =
+USERDEF_FAILED_ENTRY_REGEX = <%= userdef_failed_entry_regex %>
 #
 #
 ######################################################################
-
+<% end -%>
 
 
 
