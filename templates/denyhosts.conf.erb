@@ -500,16 +500,16 @@ SYNC_SERVER = <%= sync_server %>
 #
 #######################################################################
 <% end -%>
-
+<% if @sync_interval -%>
 #######################################################################
 #
 # SYNC_INTERVAL: the interval of time to perform synchronizations if
 # SYNC_SERVER has been uncommented.  The default is 1 hour.
 # 
-#SYNC_INTERVAL = 1h
+SYNC_INTERVAL = <%= sync_interval %>
 #
 #######################################################################
-
+<% end -%>
 
 #######################################################################
 #
