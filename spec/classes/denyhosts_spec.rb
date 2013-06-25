@@ -48,6 +48,7 @@ describe 'denyhosts', :type => :class do
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^ALLOWED_HOSTS_HOSTNAME_LOOKUP/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/AGE_RESET_VALID\s=\s5d/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/AGE_RESET_ROOT\s=\s25d/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/AGE_RESET_RESTRICTED\s=\s25d/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
             :enable    => 'true',
@@ -124,6 +125,7 @@ describe 'denyhosts', :type => :class do
             :allowed_hosts_hostname_lookup => 'YES',
             :age_reset_valid => '10d',
             :age_reset_root => '30d',
+            :age_reset_restricted => '30d'
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
@@ -149,6 +151,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/ALLOWED_HOSTS_HOSTNAME_LOOKUP\s=\sYES/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/AGE_RESET_VALID\s=\s10d/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/AGE_RESET_ROOT\s=\s30d/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/AGE_RESET_RESTRICTED\s=\s30d/) }
     end
 
   end
