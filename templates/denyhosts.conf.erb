@@ -442,7 +442,7 @@ DAEMON_LOG_MESSAGE_FORMAT = <%= daemon_log_message_format %>
 #
 ######################################################################
 <% end -%>
- 
+<% if @daemon_sleep -%>
 #######################################################################
 #
 # DAEMON_SLEEP: when DenyHosts is run in daemon mode (--daemon flag)
@@ -452,9 +452,10 @@ DAEMON_LOG_MESSAGE_FORMAT = <%= daemon_log_message_format %>
 # refer to:    http://denyhosts.sourceforge.net/faq.html#timespec
 # 
 #
-DAEMON_SLEEP = 30s
+DAEMON_SLEEP = <%= daemon_sleep %>
 #
 #######################################################################
+<% end -%>
 
 #######################################################################
 #

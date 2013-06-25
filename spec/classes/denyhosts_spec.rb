@@ -57,6 +57,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/DAEMON_LOG\s=\s\/var\/log\/denyhosts/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^DAEMON_LOG_TIME_FORMAT/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^DAEMON_LOG_MESSAGE_FORMAT/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/DAEMON_SLEEP\s=\s30s/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
             :enable    => 'true',
@@ -142,6 +143,7 @@ describe 'denyhosts', :type => :class do
             :daemon_log => '/var/log/denyhosts.log',
             :daemon_log_time_format => '%b %d %H:%M:%S',
             :daemon_log_message_format => '%(asctime)s - %(name)-12s: %(levelname)-8s %(message)s',
+            :daemon_sleep => '35s',
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
@@ -176,6 +178,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/DAEMON_LOG\s=\s\/var\/log\/denyhosts.log/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/DAEMON_LOG_TIME_FORMAT\s=\s%b\s%d\s%H:%M:%S/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/DAEMON_LOG_MESSAGE_FORMAT\s=\s%\(asctime\)s\s-\s%\(name\)-12s:\s%\(levelname\)-8s\s%\(message\)s/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/DAEMON_SLEEP\s=\s35s/) }
     end
 
   end

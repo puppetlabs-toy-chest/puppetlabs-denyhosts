@@ -34,7 +34,7 @@ class denyhosts (
   $daemon_log = '/var/log/denyhosts',
   $daemon_log_time_format = undef,
   $daemon_log_message_format = undef,
-  $daemon_sleep = undef,
+  $daemon_sleep = '30s',
   $daemon_purge = undef,
   $sync_server = undef,
   $sync_interval = undef,
