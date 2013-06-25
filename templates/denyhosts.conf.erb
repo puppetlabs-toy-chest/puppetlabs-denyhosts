@@ -485,7 +485,7 @@ DAEMON_PURGE = <%= daemon_purge %>
 #
 #######################################################################
 
-
+<% if @sync_server -%>
 #######################################################################
 #
 # SYNC_SERVER: The central server that communicates with DenyHost
@@ -496,9 +496,10 @@ DAEMON_PURGE = <%= daemon_purge %>
 # To disable synchronization (the default), do nothing. 
 #
 # To enable synchronization, you must uncomment the following line:
-SYNC_SERVER = http://xmlrpc.denyhosts.net:9911
+SYNC_SERVER = <%= sync_server %>
 #
 #######################################################################
+<% end -%>
 
 #######################################################################
 #

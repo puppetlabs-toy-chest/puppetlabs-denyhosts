@@ -36,7 +36,7 @@ class denyhosts (
   $daemon_log_message_format = undef,
   $daemon_sleep = '30s',
   $daemon_purge = '1h',
-  $sync_server = undef,
+  $sync_server = 'http://xmlrpc.denyhosts.net:9911',
   $sync_interval = undef,
   $sync_upload = undef,
   $sync_download = undef,
