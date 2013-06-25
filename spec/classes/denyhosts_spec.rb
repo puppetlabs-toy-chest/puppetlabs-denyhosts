@@ -61,6 +61,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/DAEMON_PURGE\s=\s1h/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_SERVER\s=\shttp:\/\/xmlrpc.denyhosts.net:9911/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^SYNC_INTERVAL/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_UPLOAD\s=\sno/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
             :enable    => 'true',
@@ -150,6 +151,7 @@ describe 'denyhosts', :type => :class do
             :daemon_purge => '5h',
             :sync_server => 'http://xmlrpc.localdomain:9911',
             :sync_interval => '2h',
+            :sync_upload => 'yes',
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
@@ -188,6 +190,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/DAEMON_PURGE\s=\s5h/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_SERVER\s=\shttp:\/\/xmlrpc.localdomain:9911/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_INTERVAL\s=\s2h/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_UPLOAD\s=\syes/) }
     end
 
   end

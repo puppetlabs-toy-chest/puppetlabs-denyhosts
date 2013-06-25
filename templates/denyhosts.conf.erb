@@ -510,7 +510,7 @@ SYNC_INTERVAL = <%= sync_interval %>
 #
 #######################################################################
 <% end -%>
-
+<% if @sync_upload -%>
 #######################################################################
 #
 # SYNC_UPLOAD: allow your DenyHosts daemon to transmit hosts that have
@@ -518,11 +518,10 @@ SYNC_INTERVAL = <%= sync_interval %>
 # been uncommented.
 # The default is SYNC_UPLOAD = yes
 #
-SYNC_UPLOAD = no
-#SYNC_UPLOAD = yes
+SYNC_UPLOAD = <%= sync_upload %>
 #
 #######################################################################
-
+<% end -%>
 
 #######################################################################
 #
