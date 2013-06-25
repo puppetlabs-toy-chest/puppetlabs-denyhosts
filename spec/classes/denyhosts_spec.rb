@@ -51,6 +51,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/AGE_RESET_RESTRICTED\s=\s25d/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/AGE_RESET_INVALID\s=\s10d/) }
       it { should_not contain_file('/etc/denyhosts.conf').with_content(/^RESET_ON_SUCCESS/) }
+      it { should_not contain_file('/etc/denyhosts.conf').with_content(/^PLUGIN_PURGE/) }
       it { should contain_service('denyhosts').with({
             :ensure    => 'running',
             :enable    => 'true',
@@ -129,7 +130,8 @@ describe 'denyhosts', :type => :class do
             :age_reset_root => '30d',
             :age_reset_restricted => '30d',
             :age_reset_invalid => '15d',
-            :reset_on_success => 'YES'
+            :reset_on_success => 'YES',
+            :plugin_deny => '/usr/bin/true',
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/SECURE_LOG\s=\s\/var\/log\/secure/) }
@@ -158,6 +160,7 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/AGE_RESET_RESTRICTED\s=\s30d/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/AGE_RESET_INVALID\s=\s15d/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/RESET_ON_SUCCESS\s=\sYES/) }
+      it { should contain_file('/etc/denyhosts.conf').with_content(/PLUGIN_DENY\s=\s\/usr\/bin\/true/) }
     end
 
   end

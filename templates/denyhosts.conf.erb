@@ -351,7 +351,7 @@ RESET_ON_SUCCESS = <%= reset_on_success %>
 #
 #####################################################################
 <% end -%>
-
+<% if @plugin_deny -%>
 ######################################################################
 #
 # PLUGIN_DENY: If set, this value should point to an executable
@@ -359,10 +359,10 @@ RESET_ON_SUCCESS = <%= reset_on_success %>
 # HOSTS_DENY file.  This executable will be passed the host
 # that will be added as its only argument.
 #
-#PLUGIN_DENY = /usr/bin/true
+PLUGIN_DENY = <%= plugin_deny %>
 #
 ######################################################################
-
+<% end -%>
 
 ######################################################################
 #
