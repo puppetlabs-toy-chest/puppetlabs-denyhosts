@@ -522,7 +522,7 @@ SYNC_UPLOAD = <%= sync_upload %>
 #
 #######################################################################
 <% end -%>
-
+<% if @sync_download -%>
 #######################################################################
 #
 # SYNC_DOWNLOAD: allow your DenyHosts daemon to receive hosts that have
@@ -530,12 +530,12 @@ SYNC_UPLOAD = <%= sync_upload %>
 # been uncommented.
 # The default is SYNC_DOWNLOAD = yes
 #
-#SYNC_DOWNLOAD = no
-#SYNC_DOWNLOAD = yes
+SYNC_DOWNLOAD = <%= sync_download %>
 #
 #
 #
 #######################################################################
+<% end -%>
 
 #######################################################################
 #
