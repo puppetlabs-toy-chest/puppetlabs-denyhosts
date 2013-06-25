@@ -363,7 +363,7 @@ PLUGIN_DENY = <%= plugin_deny %>
 #
 ######################################################################
 <% end -%>
-
+<% if @plugin_purge -%>
 ######################################################################
 #
 # PLUGIN_PURGE: If set, this value should point to an executable
@@ -371,9 +371,10 @@ PLUGIN_DENY = <%= plugin_deny %>
 # HOSTS_DENY file.  This executable will be passed the host
 # that is to be purged as its only argument.
 #
-#PLUGIN_PURGE = /usr/bin/true
+PLUGIN_PURGE = <%= plugin_purge %>
 #
 ######################################################################
+<% end -%>
 
 ######################################################################
 #
