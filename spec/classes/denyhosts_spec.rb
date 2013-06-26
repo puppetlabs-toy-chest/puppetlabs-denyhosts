@@ -89,9 +89,9 @@ describe 'denyhosts', :type => :class do
         }
       end
       it { should contain_file('/etc/denyhosts.conf').with_content(/ADMIN_EMAIL\s=\s+$/) }
-      it { should contain_file('/etc/hosts.allow').with_content(/host1\n/) }
-      it { should contain_file('/etc/hosts.allow').with_content(/host2\n/) }
-      it { should contain_file('/etc/hosts.allow').with_content(/host3\n/) }
+      it { should contain_file('/etc/hosts.allow').with_content(/sshd:\shost1\n/) }
+      it { should contain_file('/etc/hosts.allow').with_content(/sshd:\shost2\n/) }
+      it { should contain_file('/etc/hosts.allow').with_content(/sshd:\shost3\n/) }
     end
   end
 
