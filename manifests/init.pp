@@ -77,7 +77,7 @@ class denyhosts (
     'denyhosts':
       ensure    => running,
       enable    => true,
-      hasstatus => false,
+      hasstatus => $denyhosts::params::denyhosthasservice,
       pattern   => 'denyhosts',
       require   => Package['denyhosts'],
   }

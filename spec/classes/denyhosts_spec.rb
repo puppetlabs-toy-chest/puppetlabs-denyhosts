@@ -200,6 +200,14 @@ describe 'denyhosts', :type => :class do
       it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_DOWNLOAD\s=\sno/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_DOWNLOAD_THRESHOLD\s=\s10/) }
       it { should contain_file('/etc/denyhosts.conf').with_content(/SYNC_DOWNLOAD_RESILIENCY\s=\s2d/) }
+      it { should contain_service('denyhosts').with({
+           :ensure    => 'running',
+           :enable    => 'true',
+           :hasstatus => 'true',
+           :pattern   => 'denyhosts',
+           :require   => 'Package[denyhosts]'
+        })
+      }
     end
 
   end
