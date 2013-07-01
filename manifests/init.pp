@@ -58,12 +58,13 @@ class denyhosts (
   $sync_upload = 'no',
   $sync_download = undef,
   $sync_download_threshold = undef,
-  $sync_download_resiliency = undef
+  $sync_download_resiliency = undef,
+  $version = 'installed'
   ) inherits denyhosts::params {
 
   validate_array($allow)
 
-  package { 'denyhosts': ensure => installed; }
+  package { 'denyhosts': ensure => $version }
 
   file { '/etc/denyhosts.conf':
     owner   => root,
