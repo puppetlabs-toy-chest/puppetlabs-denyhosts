@@ -15,7 +15,7 @@
 # The file to process can be overridden with the --file command line
 # argument
 #
-SECURE_LOG = <%= secure_log %>
+SECURE_LOG = <%= @secure_log %>
 #
 ########################################################################
 <% end -%>
@@ -24,7 +24,7 @@ SECURE_LOG = <%= secure_log %>
 #
 # HOSTS_DENY: the file which contains restricted host access information
 #
-HOSTS_DENY = <%= hosts_deny %>
+HOSTS_DENY = <%= @hosts_deny %>
 #
 #######################################################################
 <% end -%>
@@ -42,7 +42,7 @@ HOSTS_DENY = <%= hosts_deny %>
 #            'w' = weeks
 #            'y' = years
 #
-PURGE_DENY = <%= purge_deny %>
+PURGE_DENY = <%= @purge_deny %>
 #
 #######################################################################
 <% end -%>
@@ -54,7 +54,7 @@ PURGE_DENY = <%= purge_deny %>
 # Setting this parameter to 0 (the default) disables this feature.
 #
 # default: a denied host can be purged/re-added indefinitely
-PURGE_THRESHOLD = <%= purge_threshold %>
+PURGE_THRESHOLD = <%= @purge_threshold %>
 #
 #######################################################################
 <% end -%>
@@ -67,7 +67,7 @@ PURGE_THRESHOLD = <%= purge_threshold %>
 #
 # eg.   sshd: 127.0.0.1  # will block sshd logins from 127.0.0.1
 #
-BLOCK_SERVICE = <%= block_service %>
+BLOCK_SERVICE = <%= @block_service %>
 #
 #######################################################################
 <% end -%>
@@ -78,7 +78,7 @@ BLOCK_SERVICE = <%= block_service %>
 # attempts has exceeded this value.  This value applies to invalid
 # user login attempts (eg. non-existent user accounts)
 #
-DENY_THRESHOLD_INVALID = <%= deny_threshold_invalid %>
+DENY_THRESHOLD_INVALID = <%= @deny_threshold_invalid %>
 #
 #######################################################################
 <% end -%>
@@ -90,7 +90,7 @@ DENY_THRESHOLD_INVALID = <%= deny_threshold_invalid %>
 # user login attempts (eg. user accounts that exist in /etc/passwd) except
 # for the "root" user
 #
-DENY_THRESHOLD_VALID = <%= deny_threshold_valid %>
+DENY_THRESHOLD_VALID = <%= @deny_threshold_valid %>
 #
 #######################################################################
 <% end -%>
@@ -101,7 +101,7 @@ DENY_THRESHOLD_VALID = <%= deny_threshold_valid %>
 # login attempts has exceeded this value.  This value applies to 
 # "root" user login attempts only.
 #
-DENY_THRESHOLD_ROOT = <%= deny_threshold_root %>
+DENY_THRESHOLD_ROOT = <%= @deny_threshold_root %>
 #
 #######################################################################
 <% end -%>
@@ -112,7 +112,7 @@ DENY_THRESHOLD_ROOT = <%= deny_threshold_root %>
 # login attempts has exceeded this value.  This value applies to 
 # usernames that appear in the WORK_DIR/restricted-usernames file only.
 #
-DENY_THRESHOLD_RESTRICTED = <%= deny_threshold_restricted %>
+DENY_THRESHOLD_RESTRICTED = <%= @deny_threshold_restricted %>
 #
 #######################################################################
 <% end -%>
@@ -125,7 +125,7 @@ DENY_THRESHOLD_RESTRICTED = <%= deny_threshold_restricted %>
 # Note: it is recommended that you use an absolute pathname
 # for this value (eg. /home/foo/denyhosts/data)
 #
-WORK_DIR = <%= work_dir %>
+WORK_DIR = <%= @work_dir %>
 #
 #######################################################################
 <% end -%>
@@ -140,7 +140,7 @@ WORK_DIR = <%= work_dir %>
 # from allowed-hosts will not be reported.  All suspicious logins from 
 # ip addresses that are not in allowed-hosts will always be reported.
 #
-SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS = <%= suspicious_login_report_allowed_hosts %>
+SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS = <%= @suspicious_login_report_allowed_hosts %>
 #
 ######################################################################
 <% end -%>
@@ -154,7 +154,7 @@ SUSPICIOUS_LOGIN_REPORT_ALLOWED_HOSTS = <%= suspicious_login_report_allowed_host
 # the corresponding hostname will be looked up and reported as well
 # (if available).
 #
-HOSTNAME_LOOKUP = <%= hostname_lookup %>
+HOSTNAME_LOOKUP = <%= @hostname_lookup %>
 #
 ######################################################################
 <% end -%>
@@ -169,7 +169,7 @@ HOSTNAME_LOOKUP = <%= hostname_lookup %>
 # and deleted upon exit.  This ensures that only one instance is
 # running at a time.
 #
-LOCK_FILE = <%= lock_file %>
+LOCK_FILE = <%= @lock_file %>
 ######################################################################
 <% end -%>
 
@@ -186,7 +186,7 @@ LOCK_FILE = <%= lock_file %>
 # Multiple email addresses can be delimited by a comma, eg:
 # ADMIN_EMAIL = foo@bar.com, bar@foo.com, etc@foobar.com
 #
-ADMIN_EMAIL = <%= adminemail %>
+ADMIN_EMAIL = <%= @adminemail %>
 #######################################################################
 <% end -%>
 <% if @smtp_host and @smtp_port -%>
@@ -197,8 +197,8 @@ ADMIN_EMAIL = <%= adminemail %>
 # email server address (SMTP_HOST) and the server port (SMTP_PORT)
 # 
 #
-SMTP_HOST = <%= smtp_host %>
-SMTP_PORT = <%= smtp_port %>
+SMTP_HOST = <%= @smtp_host %>
+SMTP_PORT = <%= @smtp_port %>
 #
 #######################################################################
 <% end -%>
@@ -208,8 +208,8 @@ SMTP_PORT = <%= smtp_port %>
 # SMTP_USERNAME and SMTP_PASSWORD: set these parameters if your 
 # smtp email server requires authentication
 #
-SMTP_USERNAME = <%= smtp_username %>
-SMTP_PASSWORD = <%= smtp_password %>
+SMTP_USERNAME = <%= @smtp_username %>
+SMTP_PASSWORD = <%= @smtp_password %>
 #
 ######################################################################
 <% end -%>
@@ -219,7 +219,7 @@ SMTP_PASSWORD = <%= smtp_password %>
 # SMTP_FROM: you can specify the "From:" address in messages sent
 # from DenyHosts when it reports thwarted abuse attempts
 #
-SMTP_FROM = DenyHosts <nobody@<%= fqdn %>>
+SMTP_FROM = DenyHosts <nobody@<%= @fqdn %>>
 #
 #######################################################################
 <% end -%>
@@ -228,7 +228,7 @@ SMTP_FROM = DenyHosts <nobody@<%= fqdn %>>
 #
 # SMTP_SUBJECT: you can specify the "Subject:" of messages sent
 # by DenyHosts when it reports thwarted abuse attempts
-SMTP_SUBJECT = <%= smtp_subject %>
+SMTP_SUBJECT = <%= @smtp_subject %>
 #
 ######################################################################
 <% end -%>
@@ -242,7 +242,7 @@ SMTP_SUBJECT = <%= smtp_subject %>
 #
 # the default:
 #
-SMTP_DATE_FORMAT = <%= smtp_date_format %>
+SMTP_DATE_FORMAT = <%= @smtp_date_format %>
 #
 ######################################################################
 <% end -%>
@@ -256,7 +256,7 @@ SMTP_DATE_FORMAT = <%= smtp_date_format %>
 # will be sent to syslog (syslog must be present on your system).
 # The default is: NO
 #
-SYSLOG_REPORT = <%= syslog_report %>
+SYSLOG_REPORT = <%= @syslog_report %>
 #
 ######################################################################
 <% end -%>
@@ -271,7 +271,7 @@ SYSLOG_REPORT = <%= syslog_report %>
 # and sshd sometimes log hostnames in addition to ip addresses
 # then you may wish to specify this option.
 # 
-ALLOWED_HOSTS_HOSTNAME_LOOKUP = <%= allowed_hosts_hostname_lookup %>
+ALLOWED_HOSTS_HOSTNAME_LOOKUP = <%= @allowed_hosts_hostname_lookup %>
 #
 ######################################################################
 <% end -%>
@@ -289,7 +289,7 @@ ALLOWED_HOSTS_HOSTNAME_LOOKUP = <%= allowed_hosts_hostname_lookup %>
 # for details on specifying this value or for complete details 
 # refer to:  http://denyhosts.sourceforge.net/faq.html#timespec
 #
-AGE_RESET_VALID = <%= age_reset_valid %>
+AGE_RESET_VALID = <%= @age_reset_valid %>
 #
 ######################################################################
 <% end -%>
@@ -306,7 +306,7 @@ AGE_RESET_VALID = <%= age_reset_valid %>
 # for details on specifying this value or for complete details 
 # refer to:  http://denyhosts.sourceforge.net/faq.html#timespec
 #
-AGE_RESET_ROOT = <%= age_reset_root %>
+AGE_RESET_ROOT = <%= @age_reset_root %>
 #
 ######################################################################
 <% end -%>
@@ -323,7 +323,7 @@ AGE_RESET_ROOT = <%= age_reset_root %>
 # for details on specifying this value or for complete details 
 # refer to:  http://denyhosts.sourceforge.net/faq.html#timespec
 #
-AGE_RESET_RESTRICTED = <%= age_reset_restricted %>
+AGE_RESET_RESTRICTED = <%= @age_reset_restricted %>
 #
 ######################################################################
 <% end -%>
@@ -340,7 +340,7 @@ AGE_RESET_RESTRICTED = <%= age_reset_restricted %>
 # for details on specifying this value or for complete details 
 # refer to:  http://denyhosts.sourceforge.net/faq.html#timespec
 #
-AGE_RESET_INVALID = <%= age_reset_invalid %>
+AGE_RESET_INVALID = <%= @age_reset_invalid %>
 #
 ######################################################################
 <% end -%>
@@ -353,7 +353,7 @@ AGE_RESET_INVALID = <%= age_reset_invalid %>
 #
 # The default is RESET_ON_SUCCESS = no
 #
-RESET_ON_SUCCESS = <%= reset_on_success %>
+RESET_ON_SUCCESS = <%= @reset_on_success %>
 #
 #####################################################################
 <% end -%>
@@ -365,7 +365,7 @@ RESET_ON_SUCCESS = <%= reset_on_success %>
 # HOSTS_DENY file.  This executable will be passed the host
 # that will be added as its only argument.
 #
-PLUGIN_DENY = <%= plugin_deny %>
+PLUGIN_DENY = <%= @plugin_deny %>
 #
 ######################################################################
 <% end -%>
@@ -377,7 +377,7 @@ PLUGIN_DENY = <%= plugin_deny %>
 # HOSTS_DENY file.  This executable will be passed the host
 # that is to be purged as its only argument.
 #
-PLUGIN_PURGE = <%= plugin_purge %>
+PLUGIN_PURGE = <%= @plugin_purge %>
 #
 ######################################################################
 <% end -%>
@@ -392,7 +392,7 @@ PLUGIN_PURGE = <%= plugin_purge %>
 # See this faq entry for more details:
 #    http://denyhosts.sf.net/faq.html#userdef_regex
 #
-USERDEF_FAILED_ENTRY_REGEX = <%= userdef_failed_entry_regex %>
+USERDEF_FAILED_ENTRY_REGEX = <%= @userdef_failed_entry_regex %>
 #
 #
 ######################################################################
@@ -410,7 +410,7 @@ USERDEF_FAILED_ENTRY_REGEX = <%= userdef_failed_entry_regex %>
 # this is the logfile that DenyHosts uses to report its status.
 # To disable logging, leave blank.  (default is: /var/log/denyhosts)
 #
-DAEMON_LOG = <%= daemon_log %>
+DAEMON_LOG = <%= @daemon_log %>
 #
 ######################################################################
 <% end -%>
@@ -424,7 +424,7 @@ DAEMON_LOG = <%= daemon_log %>
 #
 # for possible values for this parameter refer to: man strftime
 #
-DAEMON_LOG_TIME_FORMAT = <%= daemon_log_time_format %>
+DAEMON_LOG_TIME_FORMAT = <%= @daemon_log_time_format %>
 #
 ###################################################################### 
 <% end -%>
@@ -444,7 +444,7 @@ DAEMON_LOG_TIME_FORMAT = <%= daemon_log_time_format %>
 # For details on the possible format types please refer to:
 # http://docs.python.org/lib/node357.html
 #
-DAEMON_LOG_MESSAGE_FORMAT = <%= daemon_log_message_format %>
+DAEMON_LOG_MESSAGE_FORMAT = <%= @daemon_log_message_format %>
 #
 ######################################################################
 <% end -%>
@@ -458,7 +458,7 @@ DAEMON_LOG_MESSAGE_FORMAT = <%= daemon_log_message_format %>
 # refer to:    http://denyhosts.sourceforge.net/faq.html#timespec
 # 
 #
-DAEMON_SLEEP = <%= daemon_sleep %>
+DAEMON_SLEEP = <%= @daemon_sleep %>
 #
 #######################################################################
 <% end -%>
@@ -469,7 +469,7 @@ DAEMON_SLEEP = <%= daemon_sleep %>
 # run the purge mechanism to expire old entries in HOSTS_DENY
 # This has no effect if PURGE_DENY is blank.
 #
-DAEMON_PURGE = <%= daemon_purge %>
+DAEMON_PURGE = <%= @daemon_purge %>
 #
 #######################################################################
 <% end -%>
@@ -502,7 +502,7 @@ DAEMON_PURGE = <%= daemon_purge %>
 # To disable synchronization (the default), do nothing. 
 #
 # To enable synchronization, you must uncomment the following line:
-SYNC_SERVER = <%= sync_server %>
+SYNC_SERVER = <%= @sync_server %>
 #
 #######################################################################
 <% end -%>
@@ -512,7 +512,7 @@ SYNC_SERVER = <%= sync_server %>
 # SYNC_INTERVAL: the interval of time to perform synchronizations if
 # SYNC_SERVER has been uncommented.  The default is 1 hour.
 # 
-SYNC_INTERVAL = <%= sync_interval %>
+SYNC_INTERVAL = <%= @sync_interval %>
 #
 #######################################################################
 <% end -%>
@@ -524,7 +524,7 @@ SYNC_INTERVAL = <%= sync_interval %>
 # been uncommented.
 # The default is SYNC_UPLOAD = yes
 #
-SYNC_UPLOAD = <%= sync_upload %>
+SYNC_UPLOAD = <%= @sync_upload %>
 #
 #######################################################################
 <% end -%>
@@ -536,7 +536,7 @@ SYNC_UPLOAD = <%= sync_upload %>
 # been uncommented.
 # The default is SYNC_DOWNLOAD = yes
 #
-SYNC_DOWNLOAD = <%= sync_download %>
+SYNC_DOWNLOAD = <%= @sync_download %>
 #
 #
 #
@@ -554,7 +554,7 @@ SYNC_DOWNLOAD = <%= sync_download %>
 #
 # The default is SYNC_DOWNLOAD_THRESHOLD = 3
 #
-SYNC_DOWNLOAD_THRESHOLD = <%= sync_download_threshold %>
+SYNC_DOWNLOAD_THRESHOLD = <%= @sync_download_threshold %>
 #
 #######################################################################
 <% end -%>
@@ -581,7 +581,7 @@ SYNC_DOWNLOAD_THRESHOLD = <%= sync_download_threshold %>
 #
 # The default is SYNC_DOWNLOAD_RESILIENCY = 5h (5 hours)
 #
-SYNC_DOWNLOAD_RESILIENCY = <%= sync_download_resiliency %>
+SYNC_DOWNLOAD_RESILIENCY = <%= @sync_download_resiliency %>
 #
 #######################################################################
 <% end -%>
