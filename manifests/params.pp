@@ -11,7 +11,7 @@ class denyhosts::params {
     'debian': {
       $secure_log = '/var/log/auth.log'
       $lock_file = '/var/run/denyhosts.pid'
-      $denyhosthasservice = false
+      $denyhosthasservice = true
     }
     'suse': {
       $secure_log = '/var/log/messages'
