@@ -1,0 +1,50 @@
+2014-05-08 Release 0.1.0
+
+Summary: This release basically parameterizes a bunch of things. I don't think
+it's backwards incompatible, but I could be wrong.
+
+Changes:
+- adminemail                            defaults to 'root@localhost',
+- allow                                 defaults to [],
+- secure_log                            default depends on OS
+- hosts_deny                            defaults to '/etc/hosts.deny',
+- purge_deny                            defaults to '',
+- purge_threshold                       defaults to undef,
+- block_service                         defaults to 'sshd',
+- deny_threshold_invalid                defaults to '5',
+- deny_threshold_valid                  defaults to '10',
+- deny_threshold_root                   defaults to '1',
+- deny_threshold_restricted             defaults to '1',
+- work_dir                              defaults to '/var/lib/denyhosts',
+- suspicious_login_report_allowed_hosts defaults to 'YES',
+- hostname_lookup                       defaults to 'YES',
+- lock_file                             default depends on OS
+- smtp_host                             defaults to 'localhost',
+- smtp_port                             defaults to '25',
+- smtp_username                         defaults to undef,
+- smtp_password                         defaults to undef,
+- smtp_from                             defaults to true,
+- smtp_subject                          defaults to 'DenyHosts Report',
+- smtp_date_format                      defaults to undef,
+- syslog_report                         defaults to undef,
+- allowed_hosts_hostname_lookup         defaults to undef,
+- age_reset_valid                       defaults to '5d',
+- age_reset_root                        defaults to '25d',
+- age_reset_restricted                  defaults to '25d',
+- age_reset_invalid                     defaults to '10d',
+- reset_on_success                      defaults to undef,
+- plugin_deny                           defaults to undef,
+- plugin_purge                          defaults to undef,
+- userdef_failed_entry_regex            defaults to undef,
+- daemon_log                            defaults to '/var/log/denyhosts',
+- daemon_log_time_format                defaults to undef,
+- daemon_log_message_format             defaults to undef,
+- daemon_sleep                          defaults to '30s',
+- daemon_purge                          defaults to '1h',
+- sync_server                           defaults to 'http://xmlrpc.denyhosts.net:9911',
+- sync_interval                         defaults to undef,
+- sync_upload                           defaults to 'no',
+- sync_download                         defaults to undef,
+- sync_download_threshold               defaults to undef,
+- sync_download_resiliency              defaults to undef,
+- version                               defaults to 'installed'
