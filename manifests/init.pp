@@ -27,6 +27,7 @@ class denyhosts (
   $deny_threshold_valid = '10',
   $deny_threshold_root = '1',
   $deny_threshold_restricted = '1',
+  $denyhosts_cfg = '/etc/denyhosts.conf',
   $work_dir = '/var/lib/denyhosts',
   $suspicious_login_report_allowed_hosts = 'YES',
   $hostname_lookup = 'YES',
@@ -66,7 +67,7 @@ class denyhosts (
 
   package { 'denyhosts': ensure => $version }
 
-  file { '/etc/denyhosts.conf':
+  file { $denyhosts_cfg:
     owner   => root,
     group   => root,
     mode    => '0644',
