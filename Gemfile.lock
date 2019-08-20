@@ -3,9 +3,9 @@ GEM
   specs:
     diff-lcs (1.2.4)
     facter (1.7.1)
-    hiera (1.2.1)
+    hiera (1.3.4)
       json_pure
-    json_pure (1.8.0)
+    json_pure (2.2.0)
     metaclass (0.0.1)
     mocha (0.14.0)
       metaclass (~> 0.0.1)
