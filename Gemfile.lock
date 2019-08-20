@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.4)
-    facter (1.7.1)
+    facter (1.7.6)
     hiera (1.2.1)
       json_pure
     json_pure (1.8.0)
